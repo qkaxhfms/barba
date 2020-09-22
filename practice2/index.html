@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 바뀌지 않는 영역 (s)-->
+    <main data-barba="wrapper">
+        <section data-barba="container" data-barba-namespace="dino1">
+            <img src="img/d1.png" alt="">
+        </section>
+    </main>
+    <!-- 바뀌지 않는 영역 (e)-->
+    <a href="./">Dino1</a>
+    <a href="./dino2.html">Dino2</a>
+    <a href="./dino3.html">Dion3</a>
+
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script>
+        barba.init({
+            transitions:[
+                // {
+                //     name:"Amazing transition"
+                // },
+                // {
+                //     name:"Gorgeous transition"
+                // },
+                {
+                    name:"Beautiful transition",
+                    // before(){
+                    //     console.log("before");
+                    // },
+                    // after(){
+                    //     console.log("after");
+                    // },
+                    // beforeEnter(){
+                    //     console.log("before enter");
+                    // },
+                    // enter(){
+                    //     console.log("enter");
+                    // },
+                    // afterLeave(){
+                    //     console.log("after leave");
+                    // },
+                    // once(){
+                    //     console.log("once");
+                    // },
+                    // afterOnce(){
+                    //     console.log("after once");
+                    // }
+                    // leave(data){
+                    //     console.log(data.trigger);
+                    // }
+                    // leave(data){
+                    //     console.log(data.current.container);
+                    // }
+                    // leave(data){
+                    //     console.log(data.current.namespace);
+                    // }
+                    // leave(data){
+                    //     console.log(data.current.url);
+                    // }
+                    // leave(data){
+                    //     console.log(data.current.url.path);
+                    // }
+                    // leave(data){
+                    //     console.log(data.current.html);
+                    // }
+
+
+                    // route
+                    // leave(data){
+                    //     console.log(data.current.route);
+                    // }
+                    enter(data){
+                        console.log(data.next);
+                    }
+                }
+            ]
+        });
+    </script>
+</body>
+</html>
