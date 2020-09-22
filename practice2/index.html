@@ -20,6 +20,15 @@
 
     <script src="https://unpkg.com/@barba/core"></script>
     <script>
+        function transitionFunc(ns){
+            console.log(ns);
+        }
+
+        function transitionFunc2(ns, obj){
+            console.log(ns);
+            obj.subFunction();
+        }
+
         barba.init({
             transitions:[
                 // {
@@ -30,53 +39,32 @@
                 // },
                 {
                     name:"Beautiful transition",
-                    // before(){
-                    //     console.log("before");
-                    // },
-                    // after(){
-                    //     console.log("after");
-                    // },
-                    // beforeEnter(){
-                    //     console.log("before enter");
-                    // },
-                    // enter(){
-                    //     console.log("enter");
-                    // },
-                    // afterLeave(){
-                    //     console.log("after leave");
-                    // },
-                    // once(){
-                    //     console.log("once");
-                    // },
-                    // afterOnce(){
-                    //     console.log("after once");
-                    // }
-                    // leave(data){
-                    //     console.log(data.trigger);
-                    // }
-                    // leave(data){
-                    //     console.log(data.current.container);
-                    // }
-                    // leave(data){
-                    //     console.log(data.current.namespace);
-                    // }
-                    // leave(data){
-                    //     console.log(data.current.url);
-                    // }
-                    // leave(data){
-                    //     console.log(data.current.url.path);
-                    // }
-                    // leave(data){
-                    //     console.log(data.current.html);
+
+                    // async leave(data){
+                    //     await transitionFunc(data.current.namespace);
                     // }
 
-
-                    // route
-                    // leave(data){
-                    //     console.log(data.current.route);
+                    // leave:({current}) => {
+                    //     transitionFunc(current.namespace);
                     // }
-                    enter(data){
-                        console.log(data.next);
+
+                    leave(data){
+                        // const done = this.async();
+
+                        // transitionFunc2(data.current.namespace,{subFunction: () => {
+                        //     window.alert("This comes from the subFunction!");
+                        //     done();
+                        // }});
+
+                        // window.alert("This comes from the subFunction!");
+                        // done();
+
+                        return new Promise(resolve => {
+                            transitionFunc2(data.current.namespace, {subFunction: () => {
+                                window.alert("This comes from the subFunction!!");
+                                resolve();
+                            }});
+                        });
                     }
                 }
             ]
